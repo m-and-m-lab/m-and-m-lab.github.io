@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task-Relevant Scene Structure for Imitation Learning</title>
+  <meta name="description" content="Project site for HODOR (CoRL 2024) and Expanding Spatial and Temporal Context for Robotic Imitation Learning With Scene Graphs (CVPR 2026).">
+  <meta property="og:title" content="Task-Relevant Scene Structure for Imitation Learning">
+  <meta property="og:description" content="HODOR (CoRL 2024) and scene graphs for imitation learning (CVPR 2026).">
+  <meta property="og:image" content="https://m-and-m-lab.github.io/scene-structure-il/assets/s_main_figure.jpg">
+  <link rel="icon" href="../assets/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org", "@type": "ScholarlyArticle",
+    "headline": "Task-Oriented Hierarchical Object Decomposition for Visuomotor Control",
+    "author": ["Jianing Qian", "Yunshuang Li", "Bernadette Bucher", "Dinesh Jayaraman"],
+    "datePublished": "2024", "isPartOf": "Conference on Robot Learning",
+    "url": "https://arxiv.org/abs/2411.01284"
+  }, {
+    "@context": "https://schema.org", "@type": "ScholarlyArticle",
+    "headline": "Expanding Spatial and Temporal Context for Robotic Imitation Learning With Scene Graphs",
+    "author": ["Jianing Qian", "Qinhe Peng", "Emmanuel Panov", "Leonor Fermoselle", "Dinesh Jayaraman", "Bernadette Bucher", "Tarik Kelestemur"],
+    "datePublished": "2026", "isPartOf": "IEEE/CVF Conference on Computer Vision and Pattern Recognition",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Qian_Expanding_Spatial_and_Temporal_Context_for_Robotic_Imitation_Learning_With_CVPR_2026_paper.html"
+  }]
+  </script>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <a class="brand" href="../">M&amp;M Lab</a>
+    <nav aria-label="Sections">
+      <a href="#papers">Papers</a>
+      <a href="#hodor">HODOR</a>
+      <a href="#scene-graphs">Scene graphs</a>
+      <a href="#cite">Cite</a>
+    </nav>
+  </div>
+</header>
+
+<section class="proj-head">
+  <div>
+    <h1>Task-Relevant Scene Structure for Imitation Learning</h1>
+    <p><a href="https://scholar.google.com/citations?user=o67NTxYAAAAJ&amp;hl=en">Jianing Qian</a>, <a href="https://li-yunshuang.github.io/">Yunshuang Li</a>, Qinhe Peng, Emmanuel Panov, Leonor Fermoselle, <a href="https://www.seas.upenn.edu/~dineshj/">Dinesh Jayaraman</a>, <a href="https://bucherb.github.io/">Bernadette Bucher</a>, <a href="https://kelestemur.com/">Tarik Kelestemur</a></p>
+    <p>University of Pennsylvania, University of Southern California, RAI Institute, University of Michigan</p>
+  </div>
+</section>
+
+<main class="proj">
+
+<h2>Overview</h2>
+<p>A pre-trained visual encoder gives a robot policy one summary of everything in view. Most of that summary has nothing to do with the task, and none of it survives once the camera moves away.</p>
+<p>These two papers build the policy's input around the objects a task names instead. A language model reads the task description and lists the relevant objects, and vision foundation models find and track them.</p>
+<ul>
+  <li><strong>HODOR</strong> decomposes one image into the scene, the task-relevant objects, and their parts, so a policy sees detail only where the task needs it.</li>
+  <li><strong>Scene graphs</strong> carry those objects through space and time. Each object keeps a 3D position after it leaves the camera's view, so a policy can act on something it saw hundreds of steps earlier.</li>
+</ul>
+
+<h2 id="papers">Papers</h2>
+<ul class="work">
+  <li>
+    <div class="thumb"><img src="assets/h_concept_figure.jpg" alt="HODOR turns an image into an object-centric, multi-resolution, task-specific representation"></div>
+    <div>
+      <h4>Task-Oriented Hierarchical Object Decomposition for Visuomotor Control</h4>
+      <p class="by">Jianing Qian, Yunshuang Li, Bernadette Bucher, Dinesh Jayaraman. CoRL 2024.</p>
+      <p class="links"><a href="https://arxiv.org/abs/2411.01284">arXiv</a><a href="https://arxiv.org/pdf/2411.01284">PDF</a><a href="https://sites.google.com/view/hodor-corl24">Original project page</a><a href="#cite">BibTeX</a></p>
+    </div>
+  </li>
+  <li>
+    <div class="thumb"><img src="assets/s_main_figure.jpg" alt="A scene graph tracking a microwave in view and a cup out of view"></div>
+    <div>
+      <h4>Expanding Spatial and Temporal Context for Robotic Imitation Learning With Scene Graphs</h4>
+      <p class="by">Jianing Qian, Qinhe Peng*, Emmanuel Panov*, Leonor Fermoselle, Dinesh Jayaraman**, Bernadette Bucher**, Tarik Kelestemur**. CVPR 2026.<br>* Equal contribution. ** Equal advising.</p>
+      <p class="links"><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Qian_Expanding_Spatial_and_Temporal_Context_for_Robotic_Imitation_Learning_With_CVPR_2026_paper.html">CVPR open access</a><a href="https://arxiv.org/abs/2606.01072">arXiv</a><a href="https://openaccess.thecvf.com/content/CVPR2026/supplemental/Qian_Expanding_Spatial_and_CVPR_2026_supplemental.pdf">Supplement</a><a href="https://github.com/jianingq/scene-graph-robot">Code</a><a href="https://pengqinhe.github.io/Scene-Graph-CVPR2026-website/">Original project page</a><a href="#cite">BibTeX</a></p>
+    </div>
+  </li>
+</ul>
+
+<h2 id="hodor">HODOR</h2>
+<p>Hierarchical object decomposition for task-oriented representations. Given a task description, HODOR identifies the relevant objects and parts, then builds three layers of slots from coarse to fine: the full scene, the task-relevant objects, and their parts. It trains no new representation. Everything comes from existing vision and language foundation models.</p>
+<iframe class="embed" src="https://drive.google.com/file/d/1Ixt3LBgxuSdp3g5lp2VNskAuaTH6Vc-Z/preview" title="HODOR one-minute overview video" allow="autoplay" loading="lazy" allowfullscreen></iframe>
+
+<h3>Policy</h3>
+<div class="duo">
+  <figure>
+    <img src="assets/h_method.jpg" alt="HODOR policy architecture" loading="lazy">
+  </figure>
+  <p>Each slot at each level becomes one input token to a transformer policy. Self-attention handles variable-sized, unordered sets without modification, and a learnable level embedding marks which layer of the hierarchy each slot belongs to.</p>
+</div>
+
+<h3>Simulated tasks</h3>
+<figure>
+  <img src="assets/h_kitchen.jpg" alt="Success rate against number of demonstrations on five FrankaKitchen tasks" loading="lazy">
+  <figcaption>Behavior cloning success rate against number of demonstrations on five FrankaKitchen tasks. Shaded regions show standard error across 3 seeds. HODOR leads with nearly all demonstration set sizes on every task except OpenCabinetDoor, where the target is often occluded or out of view.</figcaption>
+</figure>
+
+<h3>Real robot tasks</h3>
+<figure>
+  <img src="assets/h_Task_visualization.jpg" alt="The five real kitchen tasks" loading="lazy" style="max-width:32rem">
+  <figcaption>Five tabletop kitchen tasks on a 7-DoF Franka arm, each trained on 100 teleoperated demonstrations.</figcaption>
+</figure>
+<p>Successes out of 75 trials, summed over the five tasks, with scenes matching the demonstrations (in domain) and with changed scenes (out of domain):</p>
+<table class="score">
+  <thead><tr><th scope="col">Method</th><th scope="col">In domain</th><th scope="col">Out of domain</th></tr></thead>
+  <tbody>
+    <tr class="us"><td>HODOR</td><td>64</td><td>49</td></tr>
+    <tr><td>DINOv2</td><td>58</td><td>18</td></tr>
+    <tr><td>LIV</td><td>36</td><td>3</td></tr>
+    <tr><td>R3M</td><td>33</td><td>2</td></tr>
+  </tbody>
+</table>
+<figure>
+  <img src="assets/h_OOD_visualization.jpg" alt="Out-of-domain scene changes marked with red circles" loading="lazy">
+  <figcaption>Out-of-domain scenes. Red circles mark the changes from the demonstrations.</figcaption>
+</figure>
+<figure>
+  <img src="assets/h_chain_of_skill.jpg" alt="Five skills run in sequence" loading="lazy">
+  <figcaption>Zero-shot skill chaining. Skills trained separately run in sequence, so each one starts from a state it never saw in training.</figcaption>
+</figure>
+
+<h2 id="scene-graphs">Scene graphs</h2>
+<p>Partial observability limits imitation learning at large spatial scales and long time horizons. We maintain a task-driven scene graph online and condition a transformer-based diffusion policy on it. Each object is a node holding a visual embedding, a 2D bounding box when visible, and a 3D centroid in a shared frame. When an object leaves the view, its box is cleared and its centroid stays.</p>
+<figure>
+  <img src="assets/s_main_figure.jpg" alt="Scene graph construction and policy conditioning" loading="lazy">
+  <figcaption>The microwave is in view and the cup is out of view (grayed out). The 2D box updates only for visible objects.</figcaption>
+</figure>
+
+<h3>Simulated mobile manipulation with Spot</h3>
+<p>Three multi-step tasks in MuJoCo combine navigation and manipulation. Heat-up Tea runs around 300 timesteps and Heat-up Tea Long around 1000. A policy has to remember how it opened the microwave hundreds of steps later.</p>
+<div class="duo">
+  <figure><video controls muted playsinline preload="metadata" src="assets/videos/sim-heat-tea.mp4#t=0.5"></video><figcaption>Heat-up Tea</figcaption></figure>
+  <figure><video controls muted playsinline preload="metadata" src="assets/videos/sim-heat-tea-long.mp4#t=0.5"></video><figcaption>Heat-up Tea Long</figcaption></figure>
+</div>
+<div class="trio" style="margin-top:1.25rem">
+  <figure><img src="assets/s_sim_task_1.jpg" alt="Throw Trash success rates" loading="lazy"></figure>
+  <figure><img src="assets/s_sim_task_2.jpg" alt="Heat-up Tea success rates" loading="lazy"></figure>
+  <figure><img src="assets/s_sim_task_3.jpg" alt="Heat-up Tea Long success rates" loading="lazy"></figure>
+</div>
+<p style="margin-top:.9rem">Bars stack progress through subtasks, and the lowest segment is full task success. Baselines are an RGB diffusion policy, a policy using only currently visible objects, and PTP, which adds history frames.</p>
+
+<h3>Real tabletop manipulation with Franka</h3>
+<p>The only camera is on the wrist, so the scene leaves view as the arm moves. Each task uses 300 teleoperated demonstrations.</p>
+<div class="duo">
+  <figure><video controls muted playsinline preload="metadata" src="assets/videos/real-pineapple-bowl.mp4#t=0.5"></video><figcaption>Pineapple-Bowl: the bowl leaves view once the pineapple is lifted.</figcaption></figure>
+  <figure><video controls muted playsinline preload="metadata" src="assets/videos/real-feed-animals.mp4#t=0.5"></video><figcaption>Feed-Animals: choose the fruit based on the animal seen at the start.</figcaption></figure>
+  <figure><video controls muted playsinline preload="metadata" src="assets/videos/real-feed-giraffe.mp4#t=0.5"></video><figcaption>Feed-Giraffe: scan a bookshelf, then place the pineapple at the giraffe's level.</figcaption></figure>
+  <figure><video controls muted playsinline preload="metadata" src="assets/videos/real-clean-table.mp4#t=0.5"></video><figcaption>Clean-Table: clear every toy before closing the drawer.</figcaption></figure>
+</div>
+<div class="trio" style="margin-top:1.25rem">
+  <figure><img src="assets/s_real_task1.jpg" alt="Pineapple-Bowl success rates" loading="lazy"></figure>
+  <figure><img src="assets/s_real_task2.jpg" alt="Feed-Animals success rates" loading="lazy"></figure>
+  <figure><img src="assets/s_real_task3.jpg" alt="Feed-Giraffe success rates" loading="lazy"></figure>
+</div>
+<p style="margin-top:.9rem">Across 64 real-world episodes, segmentation failed in 4 and object enumeration and tracking did not fail. Most failures came from the imitation policy in long-horizon settings. The policy runs at 3.5 to 3.8 Hz on a single NVIDIA 3090 GPU.</p>
+
+<h2 id="cite">Cite</h2>
+<pre>@inproceedings{qian2024hodor,
+  title     = {Task-Oriented Hierarchical Object Decomposition for Visuomotor Control},
+  author    = {Qian, Jianing and Li, Yunshuang and Bucher, Bernadette and Jayaraman, Dinesh},
+  booktitle = {Conference on Robot Learning (CoRL)},
+  year      = {2024}
+}
+
+@InProceedings{Qian_2026_CVPR,
+  author    = {Qian, Jianing and Peng, Qinhe and Panov, Emmanuel and Fermoselle, Leonor and Jayaraman, Dinesh and Bucher, Bernadette and Kelestemur, Tarik},
+  title     = {Expanding Spatial and Temporal Context for Robotic Imitation Learning With Scene Graphs},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month     = {June},
+  year      = {2026},
+  pages     = {28010-28020}
+}</pre>
+
+<h2>Acknowledgements</h2>
+<p>This work was supported in part by NSF CAREER Award 2239301, NSF Award 2331783, ONR award N00014-22-1-2677, and DARPA under Grant HR00112490421 (TIAMAT).</p>
+<p>Videos and the scene graph code come from the authors' <a href="https://pengqinhe.github.io/Scene-Graph-CVPR2026-website/">scene graph project page</a> and <a href="https://github.com/jianingq/scene-graph-robot">repository</a>.</p>
+
+</main>
+
+<footer>
+  <div><a href="../">Mapping &amp; Motion Lab</a>, University of Michigan Robotics.</div>
+</footer>
+
+</body>
+</html>

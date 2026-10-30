@@ -1,5 +1,16 @@
 # m-and-m-lab.github.io
 
+Public site for the Mapping & Motion Lab: https://m-and-m-lab.github.io
+
+The site is plain HTML with no build step. Edit a file, push to `main`, and GitHub Pages serves it within a minute or two.
+
+- New research (one paper list with three views), simulation software, people, support, and the contact link are all in `index.html`. Each section has a comment saying how to add an entry.
+- Headshots go in `assets/people/`, paper images in `assets/work/`. Keep them under about 300 KB.
+- List only PhD students on the People page.
+- Each paper is one `<li>` in `index.html`; its `data-` attributes decide which views it appears in. The comment above the list explains them.
+- Label papers as "Preprint" (on arXiv) or "Workshop paper". Do not name venues a paper is submitted to.
+- `scene-structure-il/` is the shared project site for HODOR and the scene graph paper.
+
 # Adding a New Project Page to M&M Lab
 
 This guide explains how to add a new page for your paper. 
