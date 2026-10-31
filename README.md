@@ -8,6 +8,7 @@ The site is plain HTML with no build step. Edit a file, push to `main`, and GitH
 - Headshots go in `assets/people/`, paper images in `assets/work/`. Keep them under about 300 KB.
 - List only PhD students on the People page.
 - Each paper is one `<li>` in `index.html`; its `data-` attributes decide which views it appears in. The comment above the list explains them.
+- When you change a file in `assets/` that ends in `.css` or `.js`, raise the `?v=` number where `index.html` loads it (and in `scene-structure-il/index.html` for the CSS). Browsers cache these for 10 minutes, and a stale script can hide the view toggle.
 - Label papers as "Preprint" (on arXiv) or "Workshop paper". Do not name venues a paper is submitted to.
 - `scene-structure-il/` is the shared project site for HODOR and the scene graph paper.
 
