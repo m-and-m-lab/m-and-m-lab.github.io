@@ -15,7 +15,7 @@
   var NOTES = {
     recent: "",
     highlights: "Selected papers by year, including Professor Bucher's work with collaborators from before the lab began.",
-    areas: ""
+    areas: "Includes Professor Bucher's work with collaborators from before the lab began."
   };
 
   function byDate(a, b) {
