@@ -20,7 +20,7 @@
   <div class="bar-in">
     <a class="brand" href="#top">M&amp;M Lab</a>
     <nav aria-label="Sections">
-      <a href="#new-research">New research</a>
+      <a href="#research">Research</a>
       <a href="#simulation">Simulation</a>
       <a href="#people">People</a>
       <a href="#support">Support</a>
@@ -40,7 +40,7 @@
 
 <main>
 
-<!-- NEW RESEARCH. One list of papers; assets/work.js builds the three views from each <li>.
+<!-- RESEARCH. One list of papers; assets/work.js builds the three views from each <li>.
      Most recent shows only the newest year in the list.
        data-date="YYYY-MM"  sort order, and the year heading in Highlights
        data-area            space | representation | search (By area view)
@@ -48,13 +48,16 @@
      Status: "Preprint" means on arXiv (class="status"), workshop paper
      (class="status ws"), published (class="status pub"). Do not name venues a
      paper is submitted to. -->
-<section class="sec" id="new-research">
-  <h2>New research</h2>
+<section class="sec" id="research">
+  <h2>Research</h2>
   <div>
-    <div class="views" role="group" aria-label="View research" hidden>
-      <button type="button" data-view="recent" aria-pressed="true">Most recent</button>
-      <button type="button" data-view="highlights" aria-pressed="false">Highlights</button>
-      <button type="button" data-view="areas" aria-pressed="false">By area</button>
+    <div class="view-bar" hidden>
+      <div class="views" role="group" aria-label="View research">
+        <button type="button" data-view="recent" aria-pressed="true">Most recent</button>
+        <button type="button" data-view="highlights" aria-pressed="false">Highlights</button>
+        <button type="button" data-view="areas" aria-pressed="false">By area</button>
+      </div>
+      <div class="area-tabs" role="group" aria-label="Research area" hidden></div>
     </div>
     <p class="view-note" id="view-note"></p>
     <div id="work-list">
@@ -236,7 +239,7 @@
 </section>
 
 <!-- SIMULATION SOFTWARE. Only the simulators we support as packages go here. Code for
-     individual papers is linked from the New research list. -->
+     individual papers is linked from the Research list. -->
 <section class="sec" id="simulation">
   <h2>Simulation software</h2>
   <div>

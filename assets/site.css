@@ -47,11 +47,16 @@ p { margin: 0 0 0.8rem; }
 .lede { max-width: 46rem; color: var(--ink-soft); }
 
 /* View toggle for the research list */
-.views { display: inline-flex; flex-wrap: wrap; margin-bottom: 0.75rem; border: 2px solid var(--blue); background: #fff; }
+.view-bar { margin-bottom: 0.75rem; padding: 0.4rem 0; background: #fff; }
+.views { display: inline-flex; flex-wrap: wrap; border: 2px solid var(--blue); background: #fff; }
 .views button { padding: 0.5rem 1.1rem; border: 0; background: #fff; color: var(--blue); font: 700 1rem var(--body); cursor: pointer; }
 .views button + button { border-left: 2px solid var(--blue); }
 .views button:hover { background: var(--mist); }
 .views button[aria-pressed="true"] { background: var(--blue); color: #fff; }
+.area-tabs { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; margin-top: 0.6rem; }
+.area-tabs button { padding: 0.25rem 0; border: 0; border-bottom: 3px solid transparent; background: none; color: #0a5c86; font: 700 1rem var(--body); cursor: pointer; }
+.area-tabs button:hover { color: var(--blue); border-bottom-color: var(--rule); }
+.area-tabs button[aria-pressed="true"] { color: var(--blue); border-bottom-color: var(--maize); }
 .view-note { max-width: 46rem; color: var(--ink-soft); }
 .view-note:empty { display: none; }
 
@@ -136,7 +141,7 @@ summary { cursor: pointer; font-weight: 700; color: #0a5c86; }
 pre { background: var(--mist); padding: 0.9rem 1rem; overflow-x: auto; font-size: 0.875rem; line-height: 1.45; }
 
 @media (min-width: 60.01rem) {
-  .views { position: sticky; top: 3.4rem; z-index: 3; }
+  .view-bar { position: sticky; top: 2.9rem; z-index: 3; }
 }
 @media (max-width: 60rem) {
   .hero-in { padding: 2.5rem 1.5rem 21rem; min-height: 0; }

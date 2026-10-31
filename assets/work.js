@@ -1,12 +1,14 @@
-// New research section: rebuilds one paper list as Most recent, Highlights, or By area.
-// Without JavaScript the full list stays visible in date order.
+// Research section: rebuilds one paper list as Most recent, Highlights, or By area.
+// By area shows one area at a time. Without JavaScript the full list stays visible.
 (function () {
   var list = document.getElementById("work-list");
-  var bar = document.querySelector(".views");
+  var wrap = document.querySelector(".view-bar");
+  var section = document.getElementById("research");
   var note = document.getElementById("view-note");
-  if (!list || !bar) return;
+  if (!list || !wrap) return;
+  var tabs = wrap.querySelector(".area-tabs");
   var items = Array.prototype.slice.call(list.querySelectorAll("li[data-date]"));
-  var buttons = Array.prototype.slice.call(bar.querySelectorAll("button"));
+  var buttons = Array.prototype.slice.call(wrap.querySelectorAll(".views button"));
   var AREAS = [
     ["representation", "Visual representation learning"],
     ["search", "Active perception and search"],
@@ -17,6 +19,17 @@
     highlights: "Selected papers by year, including Professor Bucher's work with collaborators from before the lab began.",
     areas: "Includes Professor Bucher's work with collaborators from before the lab began."
   };
+  var area = AREAS[0][0];
+
+  var areaButtons = AREAS.map(function (a) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.textContent = a[1];
+    b.setAttribute("data-area", a[0]);
+    b.addEventListener("click", function () { area = a[0]; choose("areas"); });
+    tabs.appendChild(b);
+    return b;
+  });
 
   function byDate(a, b) {
     var x = a.getAttribute("data-date"), y = b.getAttribute("data-date");
@@ -27,9 +40,7 @@
 
   function groups(view) {
     if (view === "areas") {
-      return AREAS.map(function (a) {
-        return { title: a[1], items: items.filter(function (li) { return li.getAttribute("data-area") === a[0]; }).sort(byDate) };
-      });
+      return [{ title: "", items: items.filter(function (li) { return li.getAttribute("data-area") === area; }).sort(byDate) }];
     }
     if (view === "highlights") {
       var years = [];
@@ -61,26 +72,36 @@
       box.appendChild(ul);
       list.appendChild(box);
     });
-    note.textContent = NOTES[view];
+    note.textContent = view === "areas" && area !== "search" ? "" : NOTES[view];
+    tabs.hidden = view !== "areas";
     buttons.forEach(function (b) {
       b.setAttribute("aria-pressed", b.getAttribute("data-view") === view ? "true" : "false");
     });
+    areaButtons.forEach(function (b) {
+      b.setAttribute("aria-pressed", b.getAttribute("data-area") === area ? "true" : "false");
+    });
+  }
+
+  function choose(view) {
+    show(view);
+    history.replaceState(null, "", "#" + (view === "areas" ? "areas-" + area : view));
+    // After a long list, return to the top of the section so the new view starts in sight.
+    if (section.getBoundingClientRect().top < 0) section.scrollIntoView({ block: "start" });
   }
 
   buttons.forEach(function (b) {
-    b.addEventListener("click", function () {
-      var view = b.getAttribute("data-view");
-      show(view);
-      history.replaceState(null, "", "#" + view);
-      var top = bar.getBoundingClientRect().top;
-      if (top < 0 || top > window.innerHeight) bar.scrollIntoView({ block: "start" });
-    });
+    b.addEventListener("click", function () { choose(b.getAttribute("data-view")); });
   });
 
-  // Links such as /#highlights open that view directly.
-  var start = location.hash.slice(1);
-  var known = buttons.some(function (b) { return b.getAttribute("data-view") === start; });
-  bar.hidden = false;
-  show(known ? start : "recent");
-  if (known) document.getElementById("new-research").scrollIntoView();
+  // Links such as /#highlights or /#areas-space open that view directly.
+  var start = location.hash.slice(1), view = "recent", linked = false;
+  if (start === "recent" || start === "highlights") { view = start; linked = true; }
+  if (start === "areas" || start.indexOf("areas-") === 0) {
+    view = "areas"; linked = true;
+    var want = start.slice(6);
+    if (AREAS.some(function (a) { return a[0] === want; })) area = want;
+  }
+  wrap.hidden = false;
+  show(view);
+  if (linked) section.scrollIntoView();
 })();
