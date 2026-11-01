@@ -12,6 +12,10 @@ The site is plain HTML with no build step. Edit a file, push to `main`, and GitH
 - Label papers as "Preprint" (on arXiv) or "Workshop paper". Do not name venues a paper is submitted to.
 - `scene-structure-il/` is the shared project site for HODOR and the scene graph paper.
 
+## News
+
+Edit the `news` section of `index.html`. Items are newest first, one `<li>` each. When an upcoming item happens, move it to its year, change it to the past tense, and add a link to the recording if there is one. List awarded grants only.
+
 # Adding a New Project Page to M&M Lab
 
 This guide explains how to add a new page for your paper. 

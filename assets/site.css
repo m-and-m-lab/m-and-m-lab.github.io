@@ -44,6 +44,20 @@ p { margin: 0 0 0.8rem; }
 .sec { max-width: 76rem; margin: 0 auto; padding: 3.5rem 1.5rem; display: grid; grid-template-columns: var(--rail) minmax(0, 1fr); gap: 2.5rem; border-top: 1px solid var(--rule); }
 .sec:first-of-type { border-top: 0; }
 .sec > h2 { font-size: 1.7rem; font-weight: 700; position: sticky; top: 4.5rem; align-self: start; }
+.rail { position: sticky; top: 4.5rem; align-self: start; }
+.rail h2 { font-size: 1.7rem; font-weight: 700; }
+.rail a { display: inline-block; margin-top: 0.6rem; font-weight: 700; }
+
+/* News: dated list by year; older years collapse */
+#news h3 { margin: 0 0 0.5rem; font-size: 1.2rem; }
+.news { max-width: 50rem; margin: 0 0 2rem; padding: 0; list-style: none; }
+.news li { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 1rem; padding: 0.55rem 0; border-top: 1px solid var(--rule); }
+.news p { margin: 0; }
+.when { color: var(--ink-soft); font-size: 0.97rem; white-space: nowrap; }
+#news details { max-width: 50rem; margin-bottom: 0.75rem; }
+#news summary { padding: 0.25rem 0; color: var(--blue); font: 700 1.2rem var(--display); cursor: pointer; }
+#news details .news { margin-top: 0.5rem; }
+
 .lede { max-width: 46rem; color: var(--ink-soft); }
 
 /* View toggle for the research list */
@@ -146,7 +160,8 @@ pre { background: var(--mist); padding: 0.9rem 1rem; overflow-x: auto; font-size
 @media (max-width: 60rem) {
   .hero-in { padding: 2.5rem 1.5rem 21rem; min-height: 0; }
   .sec { grid-template-columns: 1fr; gap: 1.25rem; padding: 2.5rem 1.5rem; }
-  .sec > h2 { position: static; }
+  .sec > h2, .rail { position: static; }
+  .news li { grid-template-columns: 1fr; gap: 0; }
 }
 @media (max-width: 40rem) {
   .work li, .lead-person { grid-template-columns: 1fr; gap: 0.8rem; }
